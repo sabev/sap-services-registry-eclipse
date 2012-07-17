@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:ctc="http://sap.com/ctc"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="myschema.org" xmlns:tns="myschema.org">
+
+
+	<xsd:include schemaLocation="echoSchema2.xsd"></xsd:include>
+	
+
+    <xsd:element name="NewElement" type="tns:NewComplexType"></xsd:element>
+    
+    <xsd:simpleType name="SomeString">
+    <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="asd"></xsd:enumeration>
+    <xsd:enumeration value="asdd"></xsd:enumeration>
+    <xsd:enumeration value="asddd"></xsd:enumeration>
+    </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

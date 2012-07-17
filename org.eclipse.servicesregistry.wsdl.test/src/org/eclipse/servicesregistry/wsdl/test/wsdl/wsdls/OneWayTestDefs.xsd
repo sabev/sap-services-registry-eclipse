@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	targetNamespace="http://marshalltestservice.org/types4"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://marshalltestservice.org/types4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	elementFormDefault="qualified"
+>
+
+      <element name="OneWayMessage">
+        <complexType>
+          <sequence>
+            <element name="stringValue" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+</schema>
+

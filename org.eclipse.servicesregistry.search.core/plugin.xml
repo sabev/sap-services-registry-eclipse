@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.platform.discovery.runtime.objecttype">
+      <objecttype
+            displayname="%WebServiceObjectTypeDisplayName"
+            id="org.eclipse.servicesregistry.search.core.webservice">
+      </objecttype>
+   </extension>
+   <extension
+         point="org.eclipse.platform.discovery.runtime.destinationcategory">
+      <destinationcategory
+            destinationclass="org.eclipse.servicesregistry.search.core.destinations.IServicesRegistryDestination"
+            displayname="%ServicesRegistryDestinationCategory"
+            id="org.eclipse.servicesregistry.search.core.sr.dest.category">
+      </destinationcategory>
+   </extension>
+   <extension
+         point="org.eclipse.platform.discovery.runtime.destinationsprovider">
+      <destinationsprovider
+            destcategoryid="org.eclipse.servicesregistry.search.core.sr.dest.category"
+            id="org.eclipse.servicesregistry.search.core.sr.dest.provider"
+            preferencepageid="org.eclipse.servicesregistry.ui.internal.prefpage.SrPreferencePage"
+            provider="org.eclipse.servicesregistry.search.core.internal.destinations.SrDestinationsProvider">
+      </destinationsprovider>
+   </extension>
+   <extension
+         point="org.eclipse.platform.discovery.runtime.searchprovider">
+      <searchprovider
+            id="org.eclipse.servicesregistry.search.core.sr.searchprovider"
+            instance="org.eclipse.servicesregistry.search.core.internal.search.SrSearchProvider"
+            objecttypeid="org.eclipse.servicesregistry.search.core.webservice"
+            supportstextsearch="true">
+         <category
+               categoryid="org.eclipse.servicesregistry.search.core.sr.dest.category">
+         </category>
+      </searchprovider>
+   </extension>
+   <extension
+         point="org.eclipse.platform.discovery.integration.searchconsole">
+      <slavecontroller
+            id="org.eclipse.servicesregistry.search.core.slavecontroller"
+            implclass="org.eclipse.servicesregistry.search.core.internal.slavectrl.SRSlaveController">
+      </slavecontroller>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup></startup>
+   </extension>
+
+</plugin>

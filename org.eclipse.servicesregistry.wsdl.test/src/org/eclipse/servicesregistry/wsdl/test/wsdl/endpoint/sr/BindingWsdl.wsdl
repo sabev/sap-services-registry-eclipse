@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n0="http://sap.com/xi/SAPGlobal20/Global" xmlns:sapref="http://sap.com/xi/APPL/SE/Global" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sap.com/xi/APPL/SE/Global_simplified" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/xi/APPL/SE/Global_simplifiedservice/HTTPAuthOverHTTP_1BindingNS">
+  <Policy xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="P1">
+    <ExactlyOne>
+      <All>
+        <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+          <!--Binding for AuthenticationMethod sapsp:HTTPSSO2-->
+          <wsp:All>
+            <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+              <wsp:Policy>
+                <sp:TransportToken>
+                  <wsp:Policy>
+                    <!--AuthenticationMethod sapsp:HTTPSSO2-->
+                    <sp:HttpsToken>
+                      <wsp:Policy>
+                        <sapsp:HTTPSSO2 xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy"/>
+                      </wsp:Policy>
+                    </sp:HttpsToken>
+                  </wsp:Policy>
+                </sp:TransportToken>
+                <sp:AlgorithmSuite>
+                  <wsp:Policy>
+                    <sp:TripleDesRsa15/>
+                  </wsp:Policy>
+                </sp:AlgorithmSuite>
+                <sp:Layout>
+                  <wsp:Policy>
+                    <sp:Strict/>
+                  </wsp:Policy>
+                </sp:Layout>
+              </wsp:Policy>
+            </sp:TransportBinding>
+          </wsp:All>
+          <!--Binding for AuthenticationMethod sapsp:HTTPBasic-->
+          <wsp:All>
+            <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+              <wsp:Policy>
+                <sp:TransportToken>
+                  <wsp:Policy>
+                    <!--AuthenticationMethod sapsp:HTTPBasic-->
+                    <sp:HttpsToken>
+                      <wsp:Policy>
+                        <sp:HttpBasicAuthentication/>
+                      </wsp:Policy>
+                    </sp:HttpsToken>
+                  </wsp:Policy>
+                </sp:TransportToken>
+                <sp:AlgorithmSuite>
+                  <wsp:Policy>
+                    <sp:TripleDesRsa15/>
+                  </wsp:Policy>
+                </sp:AlgorithmSuite>
+                <sp:Layout>
+                  <wsp:Policy>
+                    <sp:Strict/>
+                  </wsp:Policy>
+                </sp:Layout>
+              </wsp:Policy>
+            </sp:TransportBinding>
+          </wsp:All>
+        </wsp:ExactlyOne>
+      </All>
+    </ExactlyOne>
+  </Policy>
+  <UsingPolicy xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+<wsdl:import location="./rootwsdl_importedwsdl_2.wsdl" namespace="http://sap.com/xi/APPL/SE/Global_simplified"/>
+<wsdl:binding name="SupplierSimpleByNameAndAddressQueryResponse_In_simplified_SAP_DEFAULT_PROFILE_Service_HTTPAuthOverHTTP_1Binding" type="tns:SupplierSimpleByNameAndAddressQueryResponse_In_simplified">
+    <PolicyReference xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#P1"/>
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SupplierSimpleByNameAndAddressQueryResponse_In">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="exception00">
+        <soap:fault name="exception00" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

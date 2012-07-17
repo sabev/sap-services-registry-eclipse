@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/xi/EA-APPL/SE/Global" xmlns:tns="http://sap.com/xi/EA-APPL/SE/Global">
+
+    <element name="NewElement" type="string"></element>
+
+    <complexType name="NewComplexType">
+    	<sequence>
+    		<element name="NewElement" type="string"></element>
+    		<element name="NewElement1" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <simpleType name="NewSimpleType">
+    	<restriction base="string"></restriction>
+    </simpleType>
+</schema>

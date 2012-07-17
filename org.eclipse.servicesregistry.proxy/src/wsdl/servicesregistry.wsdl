@@ -1,0 +1,2273 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://sap.com/esi/uddi/sr/api/ws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://sap.com/esi/uddi/sr/api/ws/">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/esi/uddi/sr/api/ws/" version="1.0">
+      <xs:element name="RemoteException" type="tns:RemoteException"/>
+      <xs:element name="SRAuthenticationException" type="tns:SRAuthenticationException"/>
+      <xs:element name="SRConnectionException" type="tns:SRConnectionException"/>
+      <xs:element name="SRException" type="tns:SRException"/>
+      <xs:element name="SRPublicationException" type="tns:SRPublicationException"/>
+      <xs:element name="deleteClassificationSystemValues" type="tns:deleteClassificationSystemValues"/>
+      <xs:element name="deleteClassificationSystemValuesResponse" type="tns:deleteClassificationSystemValuesResponse"/>
+      <xs:element name="deleteClassificationSystems" type="tns:deleteClassificationSystems"/>
+      <xs:element name="deleteClassificationSystemsResponse" type="tns:deleteClassificationSystemsResponse"/>
+      <xs:element name="deleteServices" type="tns:deleteServices"/>
+      <xs:element name="deleteServicesResponse" type="tns:deleteServicesResponse"/>
+      <xs:element name="findClassificationSystemsPerPhysicalSystems" type="tns:findClassificationSystemsPerPhysicalSystems"/>
+      <xs:element name="findClassificationSystemsPerPhysicalSystemsResponse" type="tns:findClassificationSystemsPerPhysicalSystemsResponse"/>
+      <xs:element name="findClassificationValuesPerPhysicalSystems" type="tns:findClassificationValuesPerPhysicalSystems"/>
+      <xs:element name="findClassificationValuesPerPhysicalSystemsResponse" type="tns:findClassificationValuesPerPhysicalSystemsResponse"/>
+      <xs:element name="findGroupClassificationValuesPerPhysicalSystems" type="tns:findGroupClassificationValuesPerPhysicalSystems"/>
+      <xs:element name="findGroupClassificationValuesPerPhysicalSystemsResponse" type="tns:findGroupClassificationValuesPerPhysicalSystemsResponse"/>
+      <xs:element name="findPhysicalSystems" type="tns:findPhysicalSystems"/>
+      <xs:element name="findPhysicalSystemsPerGroupClassifcationValues" type="tns:findPhysicalSystemsPerGroupClassifcationValues"/>
+      <xs:element name="findPhysicalSystemsPerGroupClassifcationValuesResponse" type="tns:findPhysicalSystemsPerGroupClassifcationValuesResponse"/>
+      <xs:element name="findPhysicalSystemsResponse" type="tns:findPhysicalSystemsResponse"/>
+      <xs:element name="findService" type="tns:findService"/>
+      <xs:element name="findServiceDefinitions" type="tns:findServiceDefinitions"/>
+      <xs:element name="findServiceDefinitionsByKeywords" type="tns:findServiceDefinitionsByKeywords"/>
+      <xs:element name="findServiceDefinitionsByKeywordsResponse" type="tns:findServiceDefinitionsByKeywordsResponse"/>
+      <xs:element name="findServiceDefinitionsResponse" type="tns:findServiceDefinitionsResponse"/>
+      <xs:element name="findServiceEndpoints" type="tns:findServiceEndpoints"/>
+      <xs:element name="findServiceEndpointsResponse" type="tns:findServiceEndpointsResponse"/>
+      <xs:element name="findServiceResponse" type="tns:findServiceResponse"/>
+      <xs:element name="getClassificationSystemValues" type="tns:getClassificationSystemValues"/>
+      <xs:element name="getClassificationSystemValuesFlat" type="tns:getClassificationSystemValuesFlat"/>
+      <xs:element name="getClassificationSystemValuesFlatResponse" type="tns:getClassificationSystemValuesFlatResponse"/>
+      <xs:element name="getClassificationSystemValuesResponse" type="tns:getClassificationSystemValuesResponse"/>
+      <xs:element name="getClassificationSystems" type="tns:getClassificationSystems"/>
+      <xs:element name="getClassificationSystemsGreaterThanVersion" type="tns:getClassificationSystemsGreaterThanVersion"/>
+      <xs:element name="getClassificationSystemsGreaterThanVersionResponse" type="tns:getClassificationSystemsGreaterThanVersionResponse"/>
+      <xs:element name="getClassificationSystemsResponse" type="tns:getClassificationSystemsResponse"/>
+      <xs:element name="getGroupClassificationSystemValues" type="tns:getGroupClassificationSystemValues"/>
+      <xs:element name="getGroupClassificationSystemValuesFlat" type="tns:getGroupClassificationSystemValuesFlat"/>
+      <xs:element name="getGroupClassificationSystemValuesFlatResponse" type="tns:getGroupClassificationSystemValuesFlatResponse"/>
+      <xs:element name="getGroupClassificationSystemValuesResponse" type="tns:getGroupClassificationSystemValuesResponse"/>
+      <xs:element name="getGroupClassificationSystems" type="tns:getGroupClassificationSystems"/>
+      <xs:element name="getGroupClassificationSystemsResponse" type="tns:getGroupClassificationSystemsResponse"/>
+      <xs:element name="getPhysicalSystems" type="tns:getPhysicalSystems"/>
+      <xs:element name="getPhysicalSystemsResponse" type="tns:getPhysicalSystemsResponse"/>
+      <xs:element name="getServiceDefinitions" type="tns:getServiceDefinitions"/>
+      <xs:element name="getServiceDefinitionsResponse" type="tns:getServiceDefinitionsResponse"/>
+      <xs:element name="getVersionInfo" type="tns:getVersionInfo"/>
+      <xs:element name="getVersionInfoResponse" type="tns:getVersionInfoResponse"/>
+      <xs:element name="hidePhysicalSystems" type="tns:hidePhysicalSystems"/>
+      <xs:element name="hidePhysicalSystemsResponse" type="tns:hidePhysicalSystemsResponse"/>
+      <xs:element name="hideServiceDefinitions" type="tns:hideServiceDefinitions"/>
+      <xs:element name="hideServiceDefinitionsResponse" type="tns:hideServiceDefinitionsResponse"/>
+      <xs:element name="isKeywordSearchSupported" type="tns:isKeywordSearchSupported"/>
+      <xs:element name="isKeywordSearchSupportedResponse" type="tns:isKeywordSearchSupportedResponse"/>
+      <xs:element name="notifyPhysicalSystem" type="tns:notifyPhysicalSystem"/>
+      <xs:element name="notifyPhysicalSystemResponse" type="tns:notifyPhysicalSystemResponse"/>
+      <xs:element name="publishClassificationSystemValues" type="tns:publishClassificationSystemValues"/>
+      <xs:element name="publishClassificationSystemValuesFlat" type="tns:publishClassificationSystemValuesFlat"/>
+      <xs:element name="publishClassificationSystemValuesFlatResponse" type="tns:publishClassificationSystemValuesFlatResponse"/>
+      <xs:element name="publishClassificationSystemValuesResponse" type="tns:publishClassificationSystemValuesResponse"/>
+      <xs:element name="publishClassificationSystems" type="tns:publishClassificationSystems"/>
+      <xs:element name="publishClassificationSystemsResponse" type="tns:publishClassificationSystemsResponse"/>
+      <xs:element name="publishGroupClassificationSystemValues" type="tns:publishGroupClassificationSystemValues"/>
+      <xs:element name="publishGroupClassificationSystemValuesFlat" type="tns:publishGroupClassificationSystemValuesFlat"/>
+      <xs:element name="publishGroupClassificationSystemValuesFlatResponse" type="tns:publishGroupClassificationSystemValuesFlatResponse"/>
+      <xs:element name="publishGroupClassificationSystemValuesResponse" type="tns:publishGroupClassificationSystemValuesResponse"/>
+      <xs:element name="publishPhysicalSystems" type="tns:publishPhysicalSystems"/>
+      <xs:element name="publishPhysicalSystemsResponse" type="tns:publishPhysicalSystemsResponse"/>
+      <xs:element name="publishServiceDefinitions" type="tns:publishServiceDefinitions"/>
+      <xs:element name="publishServiceDefinitionsResponse" type="tns:publishServiceDefinitionsResponse"/>
+      <xs:element name="publishServices" type="tns:publishServices"/>
+      <xs:element name="publishServicesResponse" type="tns:publishServicesResponse"/>
+      <xs:element name="publishWSDL" type="tns:publishWSDL"/>
+      <xs:element name="publishWSDLResponse" type="tns:publishWSDLResponse"/>
+      <xs:complexType name="getVersionInfo"/>
+      <xs:complexType name="getVersionInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RemoteException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishWSDL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="wsdlURL" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishWSDLResponse"/>
+      <xs:complexType name="SRException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="detailMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SRAuthenticationException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="detailMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SRConnectionException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="detailMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPhysicalSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystemKeys" type="tns:physicalSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="physicalSystemKey">
+        <xs:complexContent>
+          <xs:extension base="tns:combinedKey">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="combinedKey">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="logicalKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="uddiKey" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPhysicalSystemsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:physicalSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="physicalSystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classifications" type="tns:classifications"/>
+          <xs:element minOccurs="0" name="host" type="xs:string"/>
+          <xs:element minOccurs="0" name="physicalSystemKey" type="tns:physicalSystemKey"/>
+          <xs:element minOccurs="0" name="systemName" type="xs:string"/>
+          <xs:element name="type" type="xs:byte"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classifications">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationReferenceGroups" nillable="true" type="tns:classificationReferenceGroup"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationReferences" nillable="true" type="tns:classificationReference"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationReferenceGroup">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationReferences" nillable="true" type="tns:classificationReference"/>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+          <xs:element minOccurs="0" name="valueDescription" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemKey">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="qname" type="xs:QName"/>
+          <xs:element minOccurs="0" name="uddiKey" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getServiceDefinitions">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceDefinitionKeys" type="tns:serviceDefinitionKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDefinitionKey">
+        <xs:complexContent>
+          <xs:extension base="tns:combinedKey">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getServiceDefinitionsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:serviceDefinition"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDefinition">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classifications" type="tns:classifications"/>
+          <xs:element minOccurs="0" name="configState" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="descriptions" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="documentation" type="xs:string"/>
+          <xs:element minOccurs="0" name="physicalSystemKey" type="tns:physicalSystemKey"/>
+          <xs:element minOccurs="0" name="qname" type="xs:QName"/>
+          <xs:element minOccurs="0" name="serviceDefinitionKey" type="tns:serviceDefinitionKey"/>
+          <xs:element minOccurs="0" name="technicalName" type="xs:string"/>
+          <xs:element minOccurs="0" name="wsdlURL" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="description">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="text" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findService">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceEndpointSearchAttributes" type="tns:serviceEndpointSearchAttributes"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceEndpointSearchAttributes">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="endpointClassifcations" type="tns:classifications"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+          <xs:element minOccurs="0" name="protocol" type="xs:anyURI"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceDefinitionKey" nillable="true" type="tns:serviceDefinitionKey"/>
+          <xs:element minOccurs="0" name="transport" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findServiceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:serviceList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDesrciption" type="tns:listDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="service" nillable="true" type="tns:service"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listDescription">
+        <xs:sequence>
+          <xs:element name="actualCount" type="xs:int"/>
+          <xs:element name="includedCount" type="xs:int"/>
+          <xs:element name="listHead" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="service">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="descriptions" nillable="true" type="tns:description"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="endpoints" nillable="true" type="tns:serviceEndpoint"/>
+          <xs:element minOccurs="0" name="serviceKey" type="tns:serviceKey"/>
+          <xs:element minOccurs="0" name="serviceQName" type="xs:QName"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceEndpoint">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bindingKey" type="tns:bindingKey"/>
+          <xs:element minOccurs="0" name="bindingQName" type="xs:QName"/>
+          <xs:element minOccurs="0" name="bindingTemplateKey" type="xs:anyURI"/>
+          <xs:element minOccurs="0" name="bindingWSDL" type="xs:anyURI"/>
+          <xs:element minOccurs="0" name="classifications" type="tns:classifications"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="endpointName" type="xs:string"/>
+          <xs:element minOccurs="0" name="endpointTargetAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="protocol" type="xs:anyURI"/>
+          <xs:element minOccurs="0" name="serviceDefinitionKey" type="tns:serviceDefinitionKey"/>
+          <xs:element minOccurs="0" name="transport" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bindingKey">
+        <xs:complexContent>
+          <xs:extension base="tns:combinedKey">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="serviceKey">
+        <xs:complexContent>
+          <xs:extension base="tns:combinedKey">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="isKeywordSearchSupported"/>
+      <xs:complexType name="isKeywordSearchSupportedResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteClassificationSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystemKeys" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteClassificationSystemsResponse"/>
+      <xs:complexType name="deleteClassificationSystemValues">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystemKeys" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteClassificationSystemValuesResponse"/>
+      <xs:complexType name="hidePhysicalSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystemKeys" type="tns:physicalSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hidePhysicalSystemsResponse"/>
+      <xs:complexType name="hideServiceDefinitions">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceDefinitionKeys" type="tns:serviceDefinitionKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hideServiceDefinitionsResponse"/>
+      <xs:complexType name="findPhysicalSystems">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="physicalSystemSearchAttributes" type="tns:physicalSystemSearchAttributes"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="physicalSystemSearchAttributes">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classifications" type="tns:classifications"/>
+          <xs:element minOccurs="0" name="host" type="xs:string"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+          <xs:element minOccurs="0" name="systemName" type="xs:string"/>
+          <xs:element name="type" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findPhysicalSystemsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:physicalSystemList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="physicalSystemList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystems" nillable="true" type="tns:physicalSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishPhysicalSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystem" type="tns:physicalSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishPhysicalSystemsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:physicalSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SRPublicationException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="detailMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="errorMessages" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="uddiKeys" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystemKeys" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:classificationSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystem">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="groupComponentIds" nillable="true" type="xs:anyURI"/>
+          <xs:element minOccurs="0" name="hasValues" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="normalizeCodes" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="onlyOnce" type="xs:boolean"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameters" nillable="true" type="tns:classificationSystemParameter"/>
+          <xs:element minOccurs="0" name="qname" type="xs:QName"/>
+          <xs:element minOccurs="0" name="readOnly" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="type" type="xs:string"/>
+          <xs:element minOccurs="0" name="uddiKey" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishServiceDefinitions">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="definitions" type="tns:serviceDefinition"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishServiceDefinitionsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:serviceDefinitionKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishServices">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="service" type="tns:service"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishServicesResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:serviceKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findServiceDefinitions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceDefinitionSearchAttributes" type="tns:serviceDefinitionSearchAttributes"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDefinitionSearchAttributes">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classifcations" type="tns:classifications"/>
+          <xs:element minOccurs="0" name="configState" type="xs:string"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="namespace" type="xs:anyURI"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystemSldIDs" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="technicalNames" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findServiceDefinitionsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:serviceDefinitionsList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDefinitionsList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceDefinitionInfos" nillable="true" type="tns:serviceDefinitionInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDefinitionInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="configState" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="key" type="xs:anyURI"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemValuesFlat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element name="version" type="xs:long"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemValuesFlatResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationSystemValueListFlat"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemValueListFlat">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystemValue" nillable="true" type="tns:classificationSystemValueFlat"/>
+          <xs:element minOccurs="0" name="listDescrption" type="tns:listDescription"/>
+          <xs:element name="version" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemValueFlat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element name="disabled" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGroupClassificationSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystemKeys" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGroupClassificationSystemsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:groupClassificationSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="groupClassificationSystem">
+        <xs:complexContent>
+          <xs:extension base="tns:classificationSystem">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="constituentClassificationSystems" nillable="true" type="tns:classificationSystem"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="deleteServices">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="deleteServiceIdentifires" type="tns:deleteServiceIdentifier"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteServiceIdentifier">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceDefinitionKey" type="tns:serviceDefinitionKey"/>
+          <xs:element minOccurs="0" name="serviceKey" type="tns:serviceKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteServicesResponse"/>
+      <xs:complexType name="findServiceEndpoints">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceEndpointSearchAttributes" type="tns:serviceEndpointSearchAttributes"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findServiceEndpointsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:serviceEndpointList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceEndpointList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceEndpoint" nillable="true" type="tns:serviceEndpointResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceEndpointResult">
+        <xs:complexContent>
+          <xs:extension base="tns:serviceEndpoint">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="serviceKey" type="tns:serviceKey"/>
+              <xs:element minOccurs="0" name="serviceQName" type="xs:QName"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getGroupClassificationSystemValuesFlat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element name="version" type="xs:long"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGroupClassificationSystemValuesFlatResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationGroupColumnList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationGroupColumnList">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="columnValues" nillable="true" type="tns:classificationGroupColumnValue"/>
+          <xs:element minOccurs="0" name="listDesccription" type="tns:listDescription"/>
+          <xs:element name="version" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationGroupColumnValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="columnValues" nillable="true" type="tns:classificationSystemValueFlat"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notifyPhysicalSystem">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="details" type="tns:notificationDetails"/>
+          <xs:element minOccurs="0" name="notificationQname" type="xs:QName"/>
+          <xs:element minOccurs="0" name="physicalSystemKey" type="tns:physicalSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificationDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="qname" type="xs:QName"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notifyPhysicalSystemResponse"/>
+      <xs:complexType name="findServiceDefinitionsByKeywords">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="expression" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findServiceDefinitionsByKeywordsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:serviceDefinitionsList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemsGreaterThanVersion">
+        <xs:sequence>
+          <xs:element name="version" type="xs:long"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemsGreaterThanVersionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationSystemList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemList">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystems" nillable="true" type="tns:classificationSystem"/>
+          <xs:element minOccurs="0" name="listDesc" type="tns:listDescription"/>
+          <xs:element name="version" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishClassificationSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystems" type="tns:classificationSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishClassificationSystemsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishClassificationSystemValuesFlat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:classificationSystemValueFlat"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishClassificationSystemValuesFlatResponse"/>
+      <xs:complexType name="publishGroupClassificationSystemValuesFlat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:classificationGroupValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationGroupValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="pair" nillable="true" type="tns:classificationPair"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationPair">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" type="tns:classificationSystemKey"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishGroupClassificationSystemValuesFlatResponse"/>
+      <xs:complexType name="findClassificationSystemsPerPhysicalSystems">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystemKeys" type="tns:physicalSystemKey"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findClassificationSystemsPerPhysicalSystemsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationSystemList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findGroupClassificationValuesPerPhysicalSystems">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystemKey" type="tns:physicalSystemKey"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findGroupClassificationValuesPerPhysicalSystemsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationGroupNodeList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationGroupNodeList">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationGroupNodes" nillable="true" type="tns:classificationGroupNode"/>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element name="version" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationGroupNode">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationGoupNodeValues" nillable="true" type="tns:classificationGroupNodeValue"/>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationGroupNodeValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="children" nillable="true" type="tns:classificationGroupNode"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element name="disabled" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findPhysicalSystemsPerGroupClassifcationValues">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:classificationGroupNode"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findPhysicalSystemsPerGroupClassifcationValuesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:physicalSystemList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemValues">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element name="version" type="xs:long"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getClassificationSystemValuesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationSystemValueList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemValueList">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="classificationSystemValue" nillable="true" type="tns:classificationSystemValue"/>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element name="version" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificationSystemValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="children" nillable="true" type="tns:classificationSystemValue"/>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element name="disabled" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGroupClassificationSystemValues">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element name="version" type="xs:long"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGroupClassificationSystemValuesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationGroupNodeList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishClassificationSystemValues">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:classificationSystemValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishClassificationSystemValuesResponse"/>
+      <xs:complexType name="publishGroupClassificationSystemValues">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:classificationGroupNode"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publishGroupClassificationSystemValuesResponse"/>
+      <xs:complexType name="findClassificationValuesPerPhysicalSystems">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificationSystemKey" type="tns:classificationSystemKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="physicalSystemKeys" type="tns:physicalSystemKey"/>
+          <xs:element name="listHead" type="xs:int"/>
+          <xs:element name="maxRows" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findClassificationValuesPerPhysicalSystemsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:classificationSystemValueList"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getVersionInfoIn">
+    <wsdl:part element="tns:getVersionInfo" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getVersionInfoOut">
+    <wsdl:part element="tns:getVersionInfoResponse" name="getVersionInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getVersionInfoFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="publishWSDLIn">
+    <wsdl:part element="tns:publishWSDL" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishWSDLOut">
+    <wsdl:part element="tns:publishWSDLResponse" name="publishWSDLResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishWSDLFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishWSDLFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishWSDLFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishWSDLFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getPhysicalSystemsIn">
+    <wsdl:part element="tns:getPhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getPhysicalSystemsOut">
+    <wsdl:part element="tns:getPhysicalSystemsResponse" name="getPhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetPhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetPhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetPhysicalSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceDefinitionsIn">
+    <wsdl:part element="tns:getServiceDefinitions" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceDefinitionsOut">
+    <wsdl:part element="tns:getServiceDefinitionsResponse" name="getServiceDefinitionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceDefinitionsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetServiceDefinitionsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetServiceDefinitionsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetServiceDefinitionsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceIn">
+    <wsdl:part element="tns:findService" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceOut">
+    <wsdl:part element="tns:findServiceResponse" name="findServiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="isKeywordSearchSupportedIn">
+    <wsdl:part element="tns:isKeywordSearchSupported" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="isKeywordSearchSupportedOut">
+    <wsdl:part element="tns:isKeywordSearchSupportedResponse" name="isKeywordSearchSupportedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="isKeywordSearchSupportedFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemsIn">
+    <wsdl:part element="tns:deleteClassificationSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemsOut">
+    <wsdl:part element="tns:deleteClassificationSystemsResponse" name="deleteClassificationSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteClassificationSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteClassificationSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteClassificationSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemValuesIn">
+    <wsdl:part element="tns:deleteClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemValuesOut">
+    <wsdl:part element="tns:deleteClassificationSystemValuesResponse" name="deleteClassificationSystemValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemValuesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteClassificationSystemValuesFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteClassificationSystemValuesFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteClassificationSystemValuesFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="hidePhysicalSystemsIn">
+    <wsdl:part element="tns:hidePhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="hidePhysicalSystemsOut">
+    <wsdl:part element="tns:hidePhysicalSystemsResponse" name="hidePhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="hidePhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySihidePhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySihidePhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySihidePhysicalSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="hideServiceDefinitionsIn">
+    <wsdl:part element="tns:hideServiceDefinitions" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="hideServiceDefinitionsOut">
+    <wsdl:part element="tns:hideServiceDefinitionsResponse" name="hideServiceDefinitionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="hideServiceDefinitionsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySihideServiceDefinitionsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySihideServiceDefinitionsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySihideServiceDefinitionsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findPhysicalSystemsIn">
+    <wsdl:part element="tns:findPhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findPhysicalSystemsOut">
+    <wsdl:part element="tns:findPhysicalSystemsResponse" name="findPhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findPhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindPhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindPhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindPhysicalSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishPhysicalSystemsIn">
+    <wsdl:part element="tns:publishPhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishPhysicalSystemsOut">
+    <wsdl:part element="tns:publishPhysicalSystemsResponse" name="publishPhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishPhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishPhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishPhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishPhysicalSystemsFault12">
+    <wsdl:part element="tns:SRPublicationException" name="SRPublicationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishPhysicalSystemsFault123">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemsIn">
+    <wsdl:part element="tns:getClassificationSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemsOut">
+    <wsdl:part element="tns:getClassificationSystemsResponse" name="getClassificationSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetClassificationSystemsFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishServiceDefinitionsIn">
+    <wsdl:part element="tns:publishServiceDefinitions" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishServiceDefinitionsOut">
+    <wsdl:part element="tns:publishServiceDefinitionsResponse" name="publishServiceDefinitionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishServiceDefinitionsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServiceDefinitionsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServiceDefinitionsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServiceDefinitionsFault12">
+    <wsdl:part element="tns:SRPublicationException" name="SRPublicationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServiceDefinitionsFault123">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishServicesIn">
+    <wsdl:part element="tns:publishServices" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishServicesOut">
+    <wsdl:part element="tns:publishServicesResponse" name="publishServicesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishServicesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServicesFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServicesFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServicesFault12">
+    <wsdl:part element="tns:SRPublicationException" name="SRPublicationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishServicesFault123">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceDefinitionsIn">
+    <wsdl:part element="tns:findServiceDefinitions" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceDefinitionsOut">
+    <wsdl:part element="tns:findServiceDefinitionsResponse" name="findServiceDefinitionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceDefinitionsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceDefinitionsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceDefinitionsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceDefinitionsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesFlatIn">
+    <wsdl:part element="tns:getClassificationSystemValuesFlat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesFlatOut">
+    <wsdl:part element="tns:getClassificationSystemValuesFlatResponse" name="getClassificationSystemValuesFlatResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemsIn">
+    <wsdl:part element="tns:getGroupClassificationSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemsOut">
+    <wsdl:part element="tns:getGroupClassificationSystemsResponse" name="getGroupClassificationSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetGroupClassificationSystemsFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="deleteServicesIn">
+    <wsdl:part element="tns:deleteServices" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteServicesOut">
+    <wsdl:part element="tns:deleteServicesResponse" name="deleteServicesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteServicesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteServicesFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteServicesFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySideleteServicesFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceEndpointsIn">
+    <wsdl:part element="tns:findServiceEndpoints" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceEndpointsOut">
+    <wsdl:part element="tns:findServiceEndpointsResponse" name="findServiceEndpointsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceEndpointsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceEndpointsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceEndpointsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceEndpointsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemValuesFlatIn">
+    <wsdl:part element="tns:getGroupClassificationSystemValuesFlat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemValuesFlatOut">
+    <wsdl:part element="tns:getGroupClassificationSystemValuesFlatResponse" name="getGroupClassificationSystemValuesFlatResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetGroupClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetGroupClassificationSystemValuesFlatFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetGroupClassificationSystemValuesFlatFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="notifyPhysicalSystemIn">
+    <wsdl:part element="tns:notifyPhysicalSystem" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="notifyPhysicalSystemOut">
+    <wsdl:part element="tns:notifyPhysicalSystemResponse" name="notifyPhysicalSystemResponse"/>
+  </wsdl:message>
+  <wsdl:message name="notifyPhysicalSystemFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySinotifyPhysicalSystemFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySinotifyPhysicalSystemFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySinotifyPhysicalSystemFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceDefinitionsByKeywordsIn">
+    <wsdl:part element="tns:findServiceDefinitionsByKeywords" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceDefinitionsByKeywordsOut">
+    <wsdl:part element="tns:findServiceDefinitionsByKeywordsResponse" name="findServiceDefinitionsByKeywordsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findServiceDefinitionsByKeywordsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceDefinitionsByKeywordsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceDefinitionsByKeywordsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindServiceDefinitionsByKeywordsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemsGreaterThanVersionIn">
+    <wsdl:part element="tns:getClassificationSystemsGreaterThanVersion" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemsGreaterThanVersionOut">
+    <wsdl:part element="tns:getClassificationSystemsGreaterThanVersionResponse" name="getClassificationSystemsGreaterThanVersionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemsGreaterThanVersionFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetClassificationSystemsGreaterThanVersionFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemsIn">
+    <wsdl:part element="tns:publishClassificationSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemsOut">
+    <wsdl:part element="tns:publishClassificationSystemsResponse" name="publishClassificationSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishClassificationSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishClassificationSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishClassificationSystemsFault12">
+    <wsdl:part element="tns:SRPublicationException" name="SRPublicationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishClassificationSystemsFault123">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemValuesFlatIn">
+    <wsdl:part element="tns:publishClassificationSystemValuesFlat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemValuesFlatOut">
+    <wsdl:part element="tns:publishClassificationSystemValuesFlatResponse" name="publishClassificationSystemValuesFlatResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishGroupClassificationSystemValuesFlatIn">
+    <wsdl:part element="tns:publishGroupClassificationSystemValuesFlat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishGroupClassificationSystemValuesFlatOut">
+    <wsdl:part element="tns:publishGroupClassificationSystemValuesFlatResponse" name="publishGroupClassificationSystemValuesFlatResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishGroupClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishGroupClassificationSystemValuesFlatFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishGroupClassificationSystemValuesFlatFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishGroupClassificationSystemValuesFlatFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findClassificationSystemsPerPhysicalSystemsIn">
+    <wsdl:part element="tns:findClassificationSystemsPerPhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findClassificationSystemsPerPhysicalSystemsOut">
+    <wsdl:part element="tns:findClassificationSystemsPerPhysicalSystemsResponse" name="findClassificationSystemsPerPhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findClassificationSystemsPerPhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindClassificationSystemsPerPhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindClassificationSystemsPerPhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindClassificationSystemsPerPhysicalSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findGroupClassificationValuesPerPhysicalSystemsIn">
+    <wsdl:part element="tns:findGroupClassificationValuesPerPhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findGroupClassificationValuesPerPhysicalSystemsOut">
+    <wsdl:part element="tns:findGroupClassificationValuesPerPhysicalSystemsResponse" name="findGroupClassificationValuesPerPhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findGroupClassificationValuesPerPhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindGroupClassificationValuesPerPhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindGroupClassificationValuesPerPhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindGroupClassificationValuesPerPhysicalSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findPhysicalSystemsPerGroupClassifcationValuesIn">
+    <wsdl:part element="tns:findPhysicalSystemsPerGroupClassifcationValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findPhysicalSystemsPerGroupClassifcationValuesOut">
+    <wsdl:part element="tns:findPhysicalSystemsPerGroupClassifcationValuesResponse" name="findPhysicalSystemsPerGroupClassifcationValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findPhysicalSystemsPerGroupClassifcationValuesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindPhysicalSystemsPerGroupClassifcationValuesFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindPhysicalSystemsPerGroupClassifcationValuesFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindPhysicalSystemsPerGroupClassifcationValuesFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesIn">
+    <wsdl:part element="tns:getClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesOut">
+    <wsdl:part element="tns:getClassificationSystemValuesResponse" name="getClassificationSystemValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetClassificationSystemValuesFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemValuesIn">
+    <wsdl:part element="tns:getGroupClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemValuesOut">
+    <wsdl:part element="tns:getGroupClassificationSystemValuesResponse" name="getGroupClassificationSystemValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getGroupClassificationSystemValuesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySigetGroupClassificationSystemValuesFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemValuesIn">
+    <wsdl:part element="tns:publishClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemValuesOut">
+    <wsdl:part element="tns:publishClassificationSystemValuesResponse" name="publishClassificationSystemValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishClassificationSystemValuesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishClassificationSystemValuesFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="publishGroupClassificationSystemValuesIn">
+    <wsdl:part element="tns:publishGroupClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="publishGroupClassificationSystemValuesOut">
+    <wsdl:part element="tns:publishGroupClassificationSystemValuesResponse" name="publishGroupClassificationSystemValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="publishGroupClassificationSystemValuesFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySipublishGroupClassificationSystemValuesFault">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:message name="findClassificationValuesPerPhysicalSystemsIn">
+    <wsdl:part element="tns:findClassificationValuesPerPhysicalSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="findClassificationValuesPerPhysicalSystemsOut">
+    <wsdl:part element="tns:findClassificationValuesPerPhysicalSystemsResponse" name="findClassificationValuesPerPhysicalSystemsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="findClassificationValuesPerPhysicalSystemsFault">
+    <wsdl:part element="tns:RemoteException" name="RemoteException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindClassificationValuesPerPhysicalSystemsFault">
+    <wsdl:part element="tns:SRConnectionException" name="SRConnectionException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindClassificationValuesPerPhysicalSystemsFault1">
+    <wsdl:part element="tns:SRAuthenticationException" name="SRAuthenticationException"/>
+  </wsdl:message>
+  <wsdl:message name="ServicesRegistrySifindClassificationValuesPerPhysicalSystemsFault12">
+    <wsdl:part element="tns:SRException" name="SRException"/>
+  </wsdl:message>
+  <wsdl:portType name="ServicesRegistrySi">
+    <wsdl:operation name="getVersionInfo" parameterOrder="parameters">
+      <wsdl:input message="tns:getVersionInfoIn"/>
+      <wsdl:output message="tns:getVersionInfoOut"/>
+      <wsdl:fault message="tns:getVersionInfoFault" name="RemoteException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishWSDL" parameterOrder="parameters">
+      <wsdl:input message="tns:publishWSDLIn"/>
+      <wsdl:output message="tns:publishWSDLOut"/>
+      <wsdl:fault message="tns:publishWSDLFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishWSDLFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishWSDLFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishWSDLFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:getPhysicalSystemsIn"/>
+      <wsdl:output message="tns:getPhysicalSystemsOut"/>
+      <wsdl:fault message="tns:getPhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetPhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetPhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetPhysicalSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceDefinitions" parameterOrder="parameters">
+      <wsdl:input message="tns:getServiceDefinitionsIn"/>
+      <wsdl:output message="tns:getServiceDefinitionsOut"/>
+      <wsdl:fault message="tns:getServiceDefinitionsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetServiceDefinitionsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetServiceDefinitionsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetServiceDefinitionsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findService" parameterOrder="parameters">
+      <wsdl:input message="tns:findServiceIn"/>
+      <wsdl:output message="tns:findServiceOut"/>
+      <wsdl:fault message="tns:findServiceFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="isKeywordSearchSupported" parameterOrder="parameters">
+      <wsdl:input message="tns:isKeywordSearchSupportedIn"/>
+      <wsdl:output message="tns:isKeywordSearchSupportedOut"/>
+      <wsdl:fault message="tns:isKeywordSearchSupportedFault" name="RemoteException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:deleteClassificationSystemsIn"/>
+      <wsdl:output message="tns:deleteClassificationSystemsOut"/>
+      <wsdl:fault message="tns:deleteClassificationSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteClassificationSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteClassificationSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteClassificationSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystemValues" parameterOrder="parameters">
+      <wsdl:input message="tns:deleteClassificationSystemValuesIn"/>
+      <wsdl:output message="tns:deleteClassificationSystemValuesOut"/>
+      <wsdl:fault message="tns:deleteClassificationSystemValuesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteClassificationSystemValuesFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteClassificationSystemValuesFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteClassificationSystemValuesFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="hidePhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:hidePhysicalSystemsIn"/>
+      <wsdl:output message="tns:hidePhysicalSystemsOut"/>
+      <wsdl:fault message="tns:hidePhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySihidePhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySihidePhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySihidePhysicalSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="hideServiceDefinitions" parameterOrder="parameters">
+      <wsdl:input message="tns:hideServiceDefinitionsIn"/>
+      <wsdl:output message="tns:hideServiceDefinitionsOut"/>
+      <wsdl:fault message="tns:hideServiceDefinitionsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySihideServiceDefinitionsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySihideServiceDefinitionsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySihideServiceDefinitionsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findPhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:findPhysicalSystemsIn"/>
+      <wsdl:output message="tns:findPhysicalSystemsOut"/>
+      <wsdl:fault message="tns:findPhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindPhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindPhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindPhysicalSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishPhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:publishPhysicalSystemsIn"/>
+      <wsdl:output message="tns:publishPhysicalSystemsOut"/>
+      <wsdl:fault message="tns:publishPhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishPhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishPhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishPhysicalSystemsFault12" name="SRPublicationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishPhysicalSystemsFault123" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:getClassificationSystemsIn"/>
+      <wsdl:output message="tns:getClassificationSystemsOut"/>
+      <wsdl:fault message="tns:getClassificationSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetClassificationSystemsFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishServiceDefinitions" parameterOrder="parameters">
+      <wsdl:input message="tns:publishServiceDefinitionsIn"/>
+      <wsdl:output message="tns:publishServiceDefinitionsOut"/>
+      <wsdl:fault message="tns:publishServiceDefinitionsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServiceDefinitionsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServiceDefinitionsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServiceDefinitionsFault12" name="SRPublicationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServiceDefinitionsFault123" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishServices" parameterOrder="parameters">
+      <wsdl:input message="tns:publishServicesIn"/>
+      <wsdl:output message="tns:publishServicesOut"/>
+      <wsdl:fault message="tns:publishServicesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServicesFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServicesFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServicesFault12" name="SRPublicationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishServicesFault123" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findServiceDefinitions" parameterOrder="parameters">
+      <wsdl:input message="tns:findServiceDefinitionsIn"/>
+      <wsdl:output message="tns:findServiceDefinitionsOut"/>
+      <wsdl:fault message="tns:findServiceDefinitionsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceDefinitionsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceDefinitionsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceDefinitionsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValuesFlat" parameterOrder="parameters">
+      <wsdl:input message="tns:getClassificationSystemValuesFlatIn"/>
+      <wsdl:output message="tns:getClassificationSystemValuesFlatOut"/>
+      <wsdl:fault message="tns:getClassificationSystemValuesFlatFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetClassificationSystemValuesFlatFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupClassificationSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:getGroupClassificationSystemsIn"/>
+      <wsdl:output message="tns:getGroupClassificationSystemsOut"/>
+      <wsdl:fault message="tns:getGroupClassificationSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetGroupClassificationSystemsFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteServices" parameterOrder="parameters">
+      <wsdl:input message="tns:deleteServicesIn"/>
+      <wsdl:output message="tns:deleteServicesOut"/>
+      <wsdl:fault message="tns:deleteServicesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteServicesFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteServicesFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySideleteServicesFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findServiceEndpoints" parameterOrder="parameters">
+      <wsdl:input message="tns:findServiceEndpointsIn"/>
+      <wsdl:output message="tns:findServiceEndpointsOut"/>
+      <wsdl:fault message="tns:findServiceEndpointsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceEndpointsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceEndpointsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceEndpointsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupClassificationSystemValuesFlat" parameterOrder="parameters">
+      <wsdl:input message="tns:getGroupClassificationSystemValuesFlatIn"/>
+      <wsdl:output message="tns:getGroupClassificationSystemValuesFlatOut"/>
+      <wsdl:fault message="tns:getGroupClassificationSystemValuesFlatFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetGroupClassificationSystemValuesFlatFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetGroupClassificationSystemValuesFlatFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetGroupClassificationSystemValuesFlatFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="notifyPhysicalSystem" parameterOrder="parameters">
+      <wsdl:input message="tns:notifyPhysicalSystemIn"/>
+      <wsdl:output message="tns:notifyPhysicalSystemOut"/>
+      <wsdl:fault message="tns:notifyPhysicalSystemFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySinotifyPhysicalSystemFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySinotifyPhysicalSystemFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySinotifyPhysicalSystemFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findServiceDefinitionsByKeywords" parameterOrder="parameters">
+      <wsdl:input message="tns:findServiceDefinitionsByKeywordsIn"/>
+      <wsdl:output message="tns:findServiceDefinitionsByKeywordsOut"/>
+      <wsdl:fault message="tns:findServiceDefinitionsByKeywordsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceDefinitionsByKeywordsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceDefinitionsByKeywordsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindServiceDefinitionsByKeywordsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemsGreaterThanVersion" parameterOrder="parameters">
+      <wsdl:input message="tns:getClassificationSystemsGreaterThanVersionIn"/>
+      <wsdl:output message="tns:getClassificationSystemsGreaterThanVersionOut"/>
+      <wsdl:fault message="tns:getClassificationSystemsGreaterThanVersionFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetClassificationSystemsGreaterThanVersionFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishClassificationSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:publishClassificationSystemsIn"/>
+      <wsdl:output message="tns:publishClassificationSystemsOut"/>
+      <wsdl:fault message="tns:publishClassificationSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishClassificationSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishClassificationSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishClassificationSystemsFault12" name="SRPublicationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishClassificationSystemsFault123" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishClassificationSystemValuesFlat" parameterOrder="parameters">
+      <wsdl:input message="tns:publishClassificationSystemValuesFlatIn"/>
+      <wsdl:output message="tns:publishClassificationSystemValuesFlatOut"/>
+      <wsdl:fault message="tns:publishClassificationSystemValuesFlatFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishClassificationSystemValuesFlatFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishGroupClassificationSystemValuesFlat" parameterOrder="parameters">
+      <wsdl:input message="tns:publishGroupClassificationSystemValuesFlatIn"/>
+      <wsdl:output message="tns:publishGroupClassificationSystemValuesFlatOut"/>
+      <wsdl:fault message="tns:publishGroupClassificationSystemValuesFlatFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishGroupClassificationSystemValuesFlatFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishGroupClassificationSystemValuesFlatFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishGroupClassificationSystemValuesFlatFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findClassificationSystemsPerPhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:findClassificationSystemsPerPhysicalSystemsIn"/>
+      <wsdl:output message="tns:findClassificationSystemsPerPhysicalSystemsOut"/>
+      <wsdl:fault message="tns:findClassificationSystemsPerPhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindClassificationSystemsPerPhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindClassificationSystemsPerPhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindClassificationSystemsPerPhysicalSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findGroupClassificationValuesPerPhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:findGroupClassificationValuesPerPhysicalSystemsIn"/>
+      <wsdl:output message="tns:findGroupClassificationValuesPerPhysicalSystemsOut"/>
+      <wsdl:fault message="tns:findGroupClassificationValuesPerPhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindGroupClassificationValuesPerPhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindGroupClassificationValuesPerPhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindGroupClassificationValuesPerPhysicalSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findPhysicalSystemsPerGroupClassifcationValues" parameterOrder="parameters">
+      <wsdl:input message="tns:findPhysicalSystemsPerGroupClassifcationValuesIn"/>
+      <wsdl:output message="tns:findPhysicalSystemsPerGroupClassifcationValuesOut"/>
+      <wsdl:fault message="tns:findPhysicalSystemsPerGroupClassifcationValuesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindPhysicalSystemsPerGroupClassifcationValuesFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindPhysicalSystemsPerGroupClassifcationValuesFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindPhysicalSystemsPerGroupClassifcationValuesFault12" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValues" parameterOrder="parameters">
+      <wsdl:input message="tns:getClassificationSystemValuesIn"/>
+      <wsdl:output message="tns:getClassificationSystemValuesOut"/>
+      <wsdl:fault message="tns:getClassificationSystemValuesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetClassificationSystemValuesFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupClassificationSystemValues" parameterOrder="parameters">
+      <wsdl:input message="tns:getGroupClassificationSystemValuesIn"/>
+      <wsdl:output message="tns:getGroupClassificationSystemValuesOut"/>
+      <wsdl:fault message="tns:getGroupClassificationSystemValuesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySigetGroupClassificationSystemValuesFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishClassificationSystemValues" parameterOrder="parameters">
+      <wsdl:input message="tns:publishClassificationSystemValuesIn"/>
+      <wsdl:output message="tns:publishClassificationSystemValuesOut"/>
+      <wsdl:fault message="tns:publishClassificationSystemValuesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishClassificationSystemValuesFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="publishGroupClassificationSystemValues" parameterOrder="parameters">
+      <wsdl:input message="tns:publishGroupClassificationSystemValuesIn"/>
+      <wsdl:output message="tns:publishGroupClassificationSystemValuesOut"/>
+      <wsdl:fault message="tns:publishGroupClassificationSystemValuesFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySipublishGroupClassificationSystemValuesFault" name="SRException"/>
+    </wsdl:operation>
+    <wsdl:operation name="findClassificationValuesPerPhysicalSystems" parameterOrder="parameters">
+      <wsdl:input message="tns:findClassificationValuesPerPhysicalSystemsIn"/>
+      <wsdl:output message="tns:findClassificationValuesPerPhysicalSystemsOut"/>
+      <wsdl:fault message="tns:findClassificationValuesPerPhysicalSystemsFault" name="RemoteException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindClassificationValuesPerPhysicalSystemsFault" name="SRConnectionException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindClassificationValuesPerPhysicalSystemsFault1" name="SRAuthenticationException"/>
+      <wsdl:fault message="tns:ServicesRegistrySifindClassificationValuesPerPhysicalSystemsFault12" name="SRException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ServicesRegistrySiBinding" type="tns:ServicesRegistrySi">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getVersionInfo">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishWSDL">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceDefinitions">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isKeywordSearchSupported">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hidePhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hideServiceDefinitions">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishPhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRPublicationException">
+        <soap:fault name="SRPublicationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishServiceDefinitions">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRPublicationException">
+        <soap:fault name="SRPublicationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishServices">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRPublicationException">
+        <soap:fault name="SRPublicationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findServiceDefinitions">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValuesFlat">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupClassificationSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteServices">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findServiceEndpoints">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupClassificationSystemValuesFlat">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="notifyPhysicalSystem">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findServiceDefinitionsByKeywords">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemsGreaterThanVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishClassificationSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRPublicationException">
+        <soap:fault name="SRPublicationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishClassificationSystemValuesFlat">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishGroupClassificationSystemValuesFlat">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findClassificationSystemsPerPhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findGroupClassificationValuesPerPhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findPhysicalSystemsPerGroupClassifcationValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishGroupClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findClassificationValuesPerPhysicalSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RemoteException">
+        <soap:fault name="RemoteException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRConnectionException">
+        <soap:fault name="SRConnectionException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRAuthenticationException">
+        <soap:fault name="SRAuthenticationException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SRException">
+        <soap:fault name="SRException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicesRegistrySiService">
+    <wsdl:port binding="tns:ServicesRegistrySiBinding" name="ServicesRegistrySiPort">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://localhost:50100/ServicesRegistrySiService/ServicesRegistrySiService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

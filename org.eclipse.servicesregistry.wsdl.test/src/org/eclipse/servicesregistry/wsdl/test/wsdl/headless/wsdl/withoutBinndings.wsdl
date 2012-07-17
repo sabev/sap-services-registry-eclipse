@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.sap.com/test/wsmodel"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ws="http://www.sap.com/test/wsmodel" xmlns:xsdl="http://www.sap.com/test/wsmodel/schemas"
+    xmlns:tns="http://www.sap.com/test/wsmodel">
+	<!--        <import namespace="http://www.sap.com/test/wsmodel/schemas" 
+        location="schemas/simpletypes.xsd">
+        </import> --> 
+		<types>
+			<schema targetNamespace="http://www.sap.com/test/wsmodel" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema">
+				<complexType name="test_struct">
+					<attribute name="attr_int_opt" type="xs:int" use="optional"/>
+					<attribute name="attr_int_req" type="xs:int" use="required"/>
+					<attribute name="attr_boolean_opt" type="xs:boolean" use="optional"/>
+					<attribute name="attr_boolean_req" type="xs:boolean" use="required"/>
+				</complexType>
+			</schema>
+		</types>
+    <message name="inputMessage">
+    	<!-- TODO built-in list type  <part name="valENTITIES" type="ENTITIES"/> -->
+    	<part name="val_ENTITY" type="xs:ENTITY"/>
+    	<part name="val_ID" type="xs:ID"/>
+    	<part name="val_IDREF" type="xs:IDREF"/>
+    	<!-- TODO built-in list type <part name="val_IDREFS" type="xs:IDREFS"/> -->
+    	<part name="val_NCName" type="xs:NCName"/>
+    	<part name="val_NOTATION" type="xs:NOTATION"/>
+    	<part name="val_NMTOKEN" type="xs:NMTOKEN"/>
+    	<!-- TODO built-in list type <part name="val_NMTOKENS" type="xs:NMTOKENS"/> -->
+    	<part name="val_Name" type="xs:Name"/>
+    	<part name="val_QName" type="xs:QName"/>
+    	<part name="val_anySimpleType" type="xs:anySimpleType"/>
+    	<!-- not supported <part name="val_anyType" type="xs:anyType"/> -->
+    	<part name="val_anyURI" type="xs:anyURI"/>
+    	<part name="val_base64Binary" type="xs:base64Binary"/>
+    	<part name="val_boolean" type="xs:boolean"/>
+    	<part name="val_byte" type="xs:byte"/> 
+    	<part name="val_date" type="xs:date"/>
+    	<part name="val_dateTime" type="xs:dateTime"/>
+    	<part name="val_decimal" type="xs:decimal"/>
+    	<part name="val_double" type="xs:double"/>
+    	<part name="val_duration" type="xs:duration"/> 
+    	<part name="val_float" type="xs:float"/>
+    	<part name="val_gDay" type="xs:gDay"/>  
+    	<part name="val_gMonth" type="xs:gMonth"/>  
+    	<part name="val_gMonthDay" type="xs:gMonthDay"/> 
+    	<part name="val_gYear" type="xs:gYear"/>  
+    	<part name="val_gYearMonth" type="xs:gYearMonth"/> 
+    	<part name="val_hexBinary" type="xs:hexBinary"/>
+    	<part name="val_int" type="xs:int"/>
+    	<part name="val_integer" type="xs:integer"/>
+    	<part name="val_language" type="xs:language"/>
+    	<part name="val_long" type="xs:long"/>
+    	<part name="val_negativeInteger" type="xs:negativeInteger"/>
+    	<part name="val_nonNegativeInteger" type="xs:nonNegativeInteger"/>
+    	<part name="val_nonPositiveInteger" type="xs:nonPositiveInteger"/>
+    	<part name="val_normalizedString" type="xs:normalizedString"/>
+    	<part name="val_positiveInteger" type="xs:positiveInteger"/>
+    	<part name="val_short" type="xs:short"/>
+    	<part name="val_string" type="xs:string"/>
+    	<part name="val_time" type="xs:time"/>
+    	<part name="val_token" type="xs:token"/>
+    	<part name="val_unsignedByte" type="xs:unsignedByte"/>
+    	<part name="val_unsignedInt" type="xs:unsignedInt"/>
+    	<part name="val_unsignedLong" type="xs:unsignedLong"/>
+    	<part name="val_unsignedShort" type="xs:unsignedShort"/>
+    	
+    	<part name="val_struct" type="tns:test_struct"/>
+    </message>
+    <message name="outputMessage">
+        <part name="part1" type="xs:integer"/>
+    </message> 
+    <portType name="portType1">
+      <operation name="op1">
+            <input message="tns:inputMessage"/>
+            <output message="tns:outputMessage"/>
+      </operation>
+    </portType>
+    <service name="WSModelTestService">
+        <port name="port1" binding="tns:binding1">
+            <soap:address location="NOTDEFINED_location"/>
+        </port>
+    </service>
+</definitions>

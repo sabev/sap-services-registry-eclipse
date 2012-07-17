@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n0="http://sap.com/xi/SAPGlobal20/Global" xmlns:sapref="http://sap.com/xi/APPL/SE/Global" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sap.com/xi/APPL/SE/Global_simplified" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/xi/APPL/SE/Global_simplified">
+  <UsingPolicy xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+  <wsdl:types>
+    <xsd:schema xmlns="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi1="http://sap.com/xi/APPL/SE/Global" targetNamespace="http://sap.com/xi/SAPGlobal20/Global">
+            <xsd:import namespace="http://sap.com/xi/APPL/SE/Global_simplified"/>
+            <xsd:import namespace="http://sap.com/xi/APPL/SE/Global"/>
+      <xsd:element name="StandardMessageFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="standard" type="sapref:ExchangeFaultData"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://sap.com/xi/APPL/SE/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi1="http://sap.com/xi/APPL/SE/Global" targetNamespace="http://sap.com/xi/APPL/SE/Global">
+            <xsd:import namespace="http://sap.com/xi/APPL/SE/Global_simplified"/>
+            <xsd:complexType name="ExchangeFaultData">
+        <xsd:sequence>
+          <xsd:element name="faultText" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="faultUrl" type="xsd:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="faultDetail" type="ExchangeLogData"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ExchangeLogData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="severity" type="xsd:string"/>
+          <xsd:element name="text" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="url" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="id" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="FormOfAddressCodeContent">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="4"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="KeyWordsText">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_MEDIUM_Name">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PartyIDContent">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="60"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema xmlns="http://sap.com/xi/APPL/SE/Global_simplified" xmlns:Q1="xi1" elementFormDefault="unqualified" targetNamespace="http://sap.com/xi/APPL/SE/Global_simplified">
+      <xsd:import namespace="http://sap.com/xi/APPL/SE/Global"/>
+      <xsd:import namespace="http://sap.com/xi/SAPGlobal20/Global"/>
+      <xsd:element name="SupplierSimpleByNameAndAddressQuery_sync" type="SupplierSimpleByNameAndAddressQueryMessage_sync"/>
+      <xsd:element name="SupplierSimpleByNameAndAddressResponse_sync" type="SupplierSimpleByNameAndAddressResponseMessage_sync"/>
+      <xsd:complexType name="SupplierSimpleByNameAndAddressResponseMessage_sync">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Supplier" type="Supplier_flat">
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SupplierSimpleSelectionByNameAndAddress_flat">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FirstName" nillable="false" type="sapref:LANGUAGEINDEPENDENT_MEDIUM_Name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SecondName" nillable="false" type="sapref:LANGUAGEINDEPENDENT_MEDIUM_Name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SupplierKeyWordsText" nillable="false" type="sapref:KeyWordsText"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EMailAddress" nillable="false" type="xsd:anyURI"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SupplierSimpleByNameAndAddressQueryMessage_sync">
+        <xsd:sequence>
+          <xsd:element name="SupplierSimpleSelectionByNameAndAddress" type="SupplierSimpleSelectionByNameAndAddress_flat">
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Supplier_flat">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ID" nillable="false" type="sapref:PartyIDContent"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="AddressCode" nillable="false" type="sapref:FormOfAddressCodeContent"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FirstLineName" nillable="false" type="sapref:LANGUAGEINDEPENDENT_MEDIUM_Name"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SecondLineName" nillable="false" type="sapref:LANGUAGEINDEPENDENT_MEDIUM_Name"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="SupplierSimpleByNameAndAddressQuery_sync">
+    <wsdl:part element="tns:SupplierSimpleByNameAndAddressQuery_sync" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SupplierSimpleByNameAndAddressResponse_sync">
+    <wsdl:part element="tns:SupplierSimpleByNameAndAddressResponse_sync" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="exception00">
+    <wsdl:part element="n0:StandardMessageFault" name="exception00"/>
+  </wsdl:message>
+  <wsdl:portType name="SupplierSimpleByNameAndAddressQueryResponse_In_simplified">
+    <wsdl:operation name="SupplierSimpleByNameAndAddressQueryResponse_In">
+      <wsdl:input message="tns:SupplierSimpleByNameAndAddressQuery_sync"/>
+      <wsdl:output message="tns:SupplierSimpleByNameAndAddressResponse_sync"/>
+      <wsdl:fault message="tns:exception00" name="exception00"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  
+</wsdl:definitions>

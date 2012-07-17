@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sr UI tests
+Bundle-SymbolicName: org.eclipse.servicesregistry.ui.test
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: org.eclipse.servicesregistry.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ org.mockito,
+ org.eclipse.swtbot.eclipse.core,
+ org.eclipse.swtbot.eclipse.finder,
+ org.eclipse.swtbot.eclipse.ui,
+ org.eclipse.swtbot.swt.finder,
+ org.apache.log4j,
+ org.eclipse.servicesregistry.testutils

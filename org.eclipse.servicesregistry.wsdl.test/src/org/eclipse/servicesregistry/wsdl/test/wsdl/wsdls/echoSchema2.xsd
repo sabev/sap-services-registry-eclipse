@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:ctc="http://sap.com/ctc"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="myschema.org" xmlns:tns="myschema.org">
+
+	<xsd:include schemaLocation="echoSchema.xsd"></xsd:include>
+	<xsd:complexType name="NewComplexType">
+		<xsd:sequence>
+			<xsd:element name="NewElement" type="tns:SomeString"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxws:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:jaxws="http://java.sun.com/xml/ns/jaxws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" wsdlLocation="servicesregistry.wsdl">
+  <jaxws:bindings node="wsdl:definitions/wsdl:types/xs:schema[@targetNamespace='http://sap.com/esi/uddi/sr/api/ws/']">
+    <jaxb:schemaBindings>
+      <jaxb:package name="org.eclipse.servicesregistry.proxy.types"/>
+    </jaxb:schemaBindings>
+  </jaxws:bindings>
+  <jaxws:bindings node="wsdl:definitions">
+    <jaxws:package name="org.eclipse.servicesregistry.proxy"/>
+  </jaxws:bindings>
+</jaxws:bindings>

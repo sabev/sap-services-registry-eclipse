@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.regom.de"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.regom.de">
+	<wsdl:import namespace="http://www.regom.de.imported" location="morse_imported_wsdl.wsdl" />
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://www.regom.de">
+			<s:element name="About">
+				<s:complexType />
+			</s:element>
+			<s:element name="AboutResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="AboutResult"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="MsgtoMorse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="msg" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="MsgtoMorseResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="MsgtoMorseResult"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="MorsetoMsg">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="morse"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="MorsetoMsgResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element maxOccurs="1" minOccurs="0" name="MorsetoMsgResult"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+            <s:element name="in" type="s:string"></s:element>
+            <s:element name="NewOperationResponse">
+            	<s:complexType>
+            		<s:sequence>
+            			<s:element name="out" type="s:string"></s:element>
+            		</s:sequence>
+            	</s:complexType>
+            </s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="AboutSoapIn">
+		<wsdl:part element="tns:About" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="AboutSoapOut">
+		<wsdl:part element="tns:AboutResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="MsgtoMorseSoapIn">
+		<wsdl:part element="tns:MsgtoMorse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="MsgtoMorseSoapOut">
+		<wsdl:part element="tns:MsgtoMorseResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="MorsetoMsgSoapIn">
+		<wsdl:part element="tns:MorsetoMsg" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="MorsetoMsgSoapOut">
+		<wsdl:part element="tns:MorsetoMsgResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part name="NewOperationRequest" element="tns:in"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NewOperationResponse">
+		<wsdl:part name="parameters" element="tns:NewOperationResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="TMorseSoap">
+		<wsdl:operation name="About">
+			<wsdl:input message="tns:AboutSoapIn" />
+			<wsdl:output message="tns:AboutSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="MsgtoMorse">
+			<wsdl:input message="tns:MsgtoMorseSoapIn" />
+			<wsdl:output message="tns:MsgtoMorseSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="MorsetoMsg">
+			<wsdl:input message="tns:MorsetoMsgSoapIn" />
+			<wsdl:output message="tns:MorsetoMsgSoapOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="TMorseHTTP">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:NewOperationResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TMorseSoapBinding" type="tns:TMorseSoap">
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="About">
+
+			<soap:operation soapAction="http://www.regom.de/About" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MsgtoMorse">
+
+			<soap:operation soapAction="http://www.regom.de/MsgtoMorse" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MorsetoMsg">
+
+			<soap:operation soapAction="http://www.regom.de/MorsetoMsg" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="HTTPBinding" type="tns:TMorseHTTP">		<http:binding verb="POST" />		<wsdl:operation name="NewOperation">			<http:operation location="/NewOperation" />			<wsdl:input>				<mime:content type="application/x-www-form-urlencoded" />			</wsdl:input>			<wsdl:output>				<mime:content type="text/xml" />			</wsdl:output>		</wsdl:operation>	</wsdl:binding>	<wsdl:service name="RandomService">		<wsdl:port name="NewPort" binding="tns:TMorseSoapBinding">			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service></wsdl:definitions>

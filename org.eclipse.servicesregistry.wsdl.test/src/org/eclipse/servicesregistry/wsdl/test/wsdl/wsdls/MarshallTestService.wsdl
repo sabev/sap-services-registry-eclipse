@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:mts1="http://marshalltestservice.org/MarshallTestServiceDefs.wsdl" xmlns:mts2="http://marshalltestservice.org/NewSchemaDefs.wsdl" xmlns:mts3="http://marshalltestservice.org/CompoundTestDefs.wsdl" xmlns:mts4="http://marshalltestservice.org/OneWayTestDefs.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="MarshallTestService" targetNamespace="http://marshalltestservice.org/MarshallTestService.wsdl">
+  <import namespace="http://marshalltestservice.org/MarshallTestServiceDefs.wsdl" location="MarshallTestServiceDefs.wsdl" />
+  <import namespace="http://marshalltestservice.org/NewSchemaDefs.wsdl" location="NewSchemaDefs.wsdl" />
+  <import namespace="http://marshalltestservice.org/CompoundTestDefs.wsdl" location="CompoundTestDefs.wsdl" />
+  <import namespace="http://marshalltestservice.org/OneWayTestDefs.wsdl" location="OneWayTestDefs.wsdl" />
+  <types />
+  <service name="MarshallTestService">
+    <port name="MarshallTestPort1" binding="mts1:MarshallTestSoapBinding">
+      <soap:address location="http://localhost:8080/W2JDLMarshallTest/jaxws/MarshallTest" />
+    </port>
+    <port name="MarshallTestPort2" binding="mts2:NewSchemaTestSoapBinding">
+      <soap:address location="http://localhost:8080/W2JDLMarshallTest/jaxws/NewSchemaTest" />
+    </port>
+    <port name="MarshallTestPort3" binding="mts3:CompoundTestBinding">
+      <soap:address location="http://localhost:8080/W2JDLMarshallTest/jaxws/CompoundTest" />
+    </port>
+    <port name="MarshallTestPort4" binding="mts4:OneWayTestSoapBinding">
+      <soap:address location="http://localhost:8080/W2JDLMarshallTest/jaxws/OneWayTest" />
+    </port>
+  </service>
+</definitions>
+

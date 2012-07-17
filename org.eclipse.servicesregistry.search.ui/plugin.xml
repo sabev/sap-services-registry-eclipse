@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.platform.discovery.integration.searchconsole">
+      <viewcustomization
+            customizationimpl="org.eclipse.servicesregistry.search.ui.internal.result.ServicesRegistryViewCustomization"
+            id="org.eclipse.servicesregistry.search.ui.result.viewcust">
+      </viewcustomization>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.eclipse.platform.discovery.ui.view.tabbedprop.searchconsole">
+         <propertyCategory
+               category="org.eclipse.servicesregistry.search.ui.properties"></propertyCategory>
+      </propertyContributor>
+   </extension>
+   
+   <!-- Service definition properties -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.eclipse.platform.discovery.ui.view.tabbedprop.searchconsole">
+         <propertyTab
+               category="org.eclipse.servicesregistry.search.ui.properties"
+               id="org.eclipse.servicesregistry.search.ui.properties.tab.servicedef.general"
+               label="General">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.platform.discovery.ui.view.tabbedprop.searchconsole">
+         <propertySection
+               class="org.eclipse.servicesregistry.search.ui.internal.properties.ServiceDefGeneralSection"
+               filter="org.eclipse.servicesregistry.search.ui.internal.properties.ServiceDefFilter"
+               id="org.eclipse.servicesregistry.search.ui.properties.propsection.servicedef.general"
+               tab="org.eclipse.servicesregistry.search.ui.properties.tab.servicedef.general">
+         </propertySection>
+      </propertySections>
+   </extension>
+   <!-- Service definition properties -->
+   
+
+   <!-- Endpoint properties -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.eclipse.platform.discovery.ui.view.tabbedprop.searchconsole">
+         <propertyTab
+               category="org.eclipse.servicesregistry.search.ui.properties"
+               id="org.eclipse.servicesregistry.search.ui.properties.tab.endpoint.general"
+               label="General">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.platform.discovery.ui.view.tabbedprop.searchconsole">
+         <propertySection
+               class="org.eclipse.servicesregistry.search.ui.internal.properties.EndpointGeneralSection"
+               filter="org.eclipse.servicesregistry.search.ui.internal.properties.EndpointFilter"
+               id="org.eclipse.servicesregistry.search.ui.properties.propsection.endpoint.general"
+               tab="org.eclipse.servicesregistry.search.ui.properties.tab.endpoint.general">
+         </propertySection>
+      </propertySections>
+   </extension>
+   <extension
+         point="org.eclipse.platform.discovery.ui.advancedsearchparams">
+      <advancedsearchparams
+            id="org.eclipse.servicesregistry.search.ui.internal.classifications.ClassificationTreeContribution"
+            searchproviderid="org.eclipse.servicesregistry.search.core.sr.searchprovider"
+            uicontributorclass="org.eclipse.servicesregistry.search.ui.internal.classifications.ClassificationTreeContribution">
+      </advancedsearchparams>
+   </extension>
+   <!-- Endpoint properties -->
+   
+</plugin>

@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:vi" xmlns:ns0="urn:com.sap.esi.uddi.sr.cs:api_v1" xmlns:ns1="urn:uddi-org:vscache_v3" xmlns:ns2="urn:uddi-org:api_v3" xmlns:tns="urn:vi">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:java/lang" xmlns:tns="urn:java/lang">
+      <xs:complexType name="ArrayOfString">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="String" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:uddi-org:api_v3" xmlns:tns="urn:uddi-org:api_v3">
+      <xs:complexType name="UddiException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="result" nillable="true" type="tns:Result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errInfo" nillable="true" type="tns:ErrInfo"/>
+          <xs:element name="errno" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ErrInfo">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="errCode" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:element name="dispositionReport" type="tns:UddiException"/>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:com.sap.esi.uddi.sr.cs:api_v1" xmlns:s0="urn:java/lang" xmlns:tns="urn:com.sap.esi.uddi.sr.cs:api_v1">
+      <xs:import namespace="urn:java/lang"/>
+      <xs:complexType name="ListDescription">
+        <xs:sequence>
+          <xs:element name="actualCount" type="xs:int"/>
+          <xs:element name="includedCount" type="xs:int"/>
+          <xs:element name="listHead" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Pair">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errInfo" nillable="true" type="tns:ErrInfo"/>
+        </xs:sequence>
+        <xs:attribute name="errno" type="xs:int" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ErrInfo">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="errCode" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="ClassificationSystemList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDesc" nillable="true" type="tns:ListDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationSystem" nillable="true" type="tns:ClassificationSystem"/>
+        </xs:sequence>
+        <xs:attribute name="version" type="xs:long" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ClassificationSystem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="isPredifined" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="readOnly" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="onlyOnce" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="mustHaveDesc" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="normalizeCodes" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="serializationMethod" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="pathSeparator" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="groupComponentIds" nillable="true" type="s0:ArrayOfString"/>
+          <xs:element minOccurs="0" name="mTimeCustModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="mTimeSapModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideCusModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideCustPrgService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideSapModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideSapPrgService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="isTree" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name="valuesVersion" type="xs:long" use="optional"/>
+      </xs:complexType>
+      <xs:complexType name="UpdateInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="mustHaveDescription" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="onlyOnce" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="readOnly" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="systemId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="mTimeCustModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="mTimeSapModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideCusModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideCustPrgService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideSapModService" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ideSapPrgService" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClassificationValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="path" nillable="true" type="s0:ArrayOfString"/>
+          <xs:element name="selectable" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClassificationServiceException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="result" nillable="true" type="tns:Result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClassificationGroupValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Pair" nillable="true" type="tns:Pair"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClassificationSystemValueList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDesc" nillable="true" type="tns:ListDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationValue" nillable="true" type="tns:ClassificationValue"/>
+        </xs:sequence>
+        <xs:attribute name="version" type="xs:long" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfClassificationGroupValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationGroupValue" nillable="true" type="tns:ClassificationGroupValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfPair">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Pair" nillable="true" type="tns:Pair"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfClassificationValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationValue" nillable="true" type="tns:ClassificationValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfClassificationSystem">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ClassificationSystem" nillable="true" type="tns:ClassificationSystem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="createClassificationSystem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ClassificationSystem" nillable="true" type="tns:ClassificationSystem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createClassificationSystemResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dispositionReport" type="tns:ClassificationServiceException"/>
+      <xs:element name="deleteClassificationSystem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="systemId" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClassificationSystemResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClassificationSystemAllValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="systemId" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClassificationSystemAllValuesResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClassificationSystems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="systemId" nillable="true" type="s0:ArrayOfString"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClassificationSystemsResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllClassificationSystems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listHead" type="xs:int"/>
+            <xs:element minOccurs="0" name="maxRows" type="xs:int"/>
+            <xs:element minOccurs="0" name="version" type="xs:long"/>
+            <xs:element minOccurs="0" name="sortType" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClassificationSystemList" nillable="true" type="tns:ClassificationSystemList"/>
+      <xs:element name="getClassificationSystem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="systems" nillable="true" type="s0:ArrayOfString"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClassificationSystemDetail" nillable="true" type="tns:ArrayOfClassificationSystem"/>
+      <xs:element name="getClassificationSystemValue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="systemId" nillable="true" type="xs:string"/>
+            <xs:element name="code" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClassificationValueDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" nillable="true" type="tns:ClassificationValue"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClassificationSystemValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listHead" type="xs:int"/>
+            <xs:element minOccurs="0" name="maxRows" type="xs:int"/>
+            <xs:element minOccurs="0" name="version" type="xs:long"/>
+            <xs:element name="systemId" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupHierarchyOrder" nillable="true" type="s0:ArrayOfString"/>
+            <xs:element minOccurs="0" name="sortType" type="xs:int"/>
+            <xs:element minOccurs="0" name="groupValuesFilter" nillable="true" type="s0:ArrayOfString"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClassificationValueList" nillable="true" type="tns:ClassificationSystemValueList"/>
+      <xs:element name="getValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="pairs" nillable="true" type="tns:ArrayOfPair"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getValuesResponse" nillable="true" type="tns:ArrayOfClassificationValue"/>
+      <xs:element name="saveClassificationSystemGroupValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="groupSystemId" nillable="true" type="xs:string"/>
+            <xs:element name="values" nillable="true" type="tns:ArrayOfClassificationGroupValue"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveClassificationSystemGroupValuesResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveClassificationSystemValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="systemId" nillable="true" type="xs:string"/>
+            <xs:element name="values" nillable="true" type="tns:ArrayOfClassificationValue"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveClassificationSystemValuesResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateClassificationSystem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UpdateInfo" nillable="true" type="tns:UpdateInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateClassificationSystemResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:com.sap.esi.uddi.sr.cs.transport" xmlns:s0="urn:uddi-org:vscache_v3" xmlns:tns="urn:com.sap.esi.uddi.sr.cs.transport">
+      <xs:import namespace="urn:uddi-org:vscache_v3"/>
+      <xs:complexType name="ArrayOfValidValue">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ValidValue" nillable="true" type="s0:ValidValue"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:uddi-org:vscache_v3" xmlns:tns="urn:uddi-org:vscache_v3">
+      <xs:complexType name="ValidValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="keyValue" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidValuesList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chunkToken" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="validValue" nillable="true" type="tns:ValidValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="get_allValidValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="authInfo" nillable="true" type="xs:string"/>
+            <xs:element name="tModelKey" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="chunkToken" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!-- <xs:element name="validValuesList">
+				<xs:complexType>
+				<xs:sequence>
+				<xs:element name="Response" type="tns:ValidValuesList" nillable="true"/>
+				</xs:sequence>
+				</xs:complexType>
+				</xs:element> -->
+      <xs:element name="validValuesList" nillable="true" type="tns:ValidValuesList"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createClassificationSystemIn_doc">
+    <wsdl:part element="ns0:createClassificationSystem" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createClassificationSystemOut_doc">
+    <wsdl:part element="ns0:createClassificationSystemResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemIn_doc">
+    <wsdl:part element="ns0:deleteClassificationSystem" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemOut_doc">
+    <wsdl:part element="ns0:deleteClassificationSystemResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemAllValuesIn_doc">
+    <wsdl:part element="ns0:deleteClassificationSystemAllValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemAllValuesOut_doc">
+    <wsdl:part element="ns0:deleteClassificationSystemAllValuesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemAllValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemsIn_doc">
+    <wsdl:part element="ns0:deleteClassificationSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystemsOut_doc">
+    <wsdl:part element="ns0:deleteClassificationSystemsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteClassificationSystems_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="getAllClassificationSystemsIn_doc">
+    <wsdl:part element="ns0:getAllClassificationSystems" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAllClassificationSystemsOut_doc">
+    <wsdl:part element="ns0:ClassificationSystemList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAllClassificationSystems_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemIn_doc">
+    <wsdl:part element="ns0:getClassificationSystem" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemOut_doc">
+    <wsdl:part element="ns0:ClassificationSystemDetail" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValueIn_doc">
+    <wsdl:part element="ns0:getClassificationSystemValue" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValueOut_doc">
+    <wsdl:part element="ns0:ClassificationValueDetail" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValue_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesIn_doc">
+    <wsdl:part element="ns0:getClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValuesOut_doc">
+    <wsdl:part element="ns0:ClassificationValueList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClassificationSystemValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="getValuesIn_doc">
+    <wsdl:part element="ns0:getValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getValuesOut_doc">
+    <wsdl:part element="ns0:getValuesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="get_allValidValuesIn_doc">
+    <wsdl:part element="ns1:get_allValidValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="get_allValidValuesOut_doc">
+    <wsdl:part element="ns1:validValuesList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="get_allValidValues_com.sap.esi.uddi.sr.cs.exception.UddiException_doc">
+    <wsdl:part element="ns2:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="saveClassificationSystemGroupValuesIn_doc">
+    <wsdl:part element="ns0:saveClassificationSystemGroupValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="saveClassificationSystemGroupValuesOut_doc">
+    <wsdl:part element="ns0:saveClassificationSystemGroupValuesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="saveClassificationSystemGroupValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="saveClassificationSystemValuesIn_doc">
+    <wsdl:part element="ns0:saveClassificationSystemValues" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="saveClassificationSystemValuesOut_doc">
+    <wsdl:part element="ns0:saveClassificationSystemValuesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="saveClassificationSystemValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:message name="updateClassificationSystemIn_doc">
+    <wsdl:part element="ns0:updateClassificationSystem" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateClassificationSystemOut_doc">
+    <wsdl:part element="ns0:updateClassificationSystemResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc">
+    <wsdl:part element="ns0:dispositionReport" name="errorPart"/>
+  </wsdl:message>
+  <wsdl:portType name="ClassificationServiceVi">
+    <wsdl:operation name="createClassificationSystem">
+      <wsdl:input message="tns:createClassificationSystemIn_doc"/>
+      <wsdl:output message="tns:createClassificationSystemOut_doc"/>
+      <wsdl:fault message="tns:createClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystem">
+      <wsdl:input message="tns:deleteClassificationSystemIn_doc"/>
+      <wsdl:output message="tns:deleteClassificationSystemOut_doc"/>
+      <wsdl:fault message="tns:deleteClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystemAllValues">
+      <wsdl:input message="tns:deleteClassificationSystemAllValuesIn_doc"/>
+      <wsdl:output message="tns:deleteClassificationSystemAllValuesOut_doc"/>
+      <wsdl:fault message="tns:deleteClassificationSystemAllValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystems">
+      <wsdl:input message="tns:deleteClassificationSystemsIn_doc"/>
+      <wsdl:output message="tns:deleteClassificationSystemsOut_doc"/>
+      <wsdl:fault message="tns:deleteClassificationSystems_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClassificationSystems">
+      <wsdl:input message="tns:getAllClassificationSystemsIn_doc"/>
+      <wsdl:output message="tns:getAllClassificationSystemsOut_doc"/>
+      <wsdl:fault message="tns:getAllClassificationSystems_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystem">
+      <wsdl:input message="tns:getClassificationSystemIn_doc"/>
+      <wsdl:output message="tns:getClassificationSystemOut_doc"/>
+      <wsdl:fault message="tns:getClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValue">
+      <wsdl:input message="tns:getClassificationSystemValueIn_doc"/>
+      <wsdl:output message="tns:getClassificationSystemValueOut_doc"/>
+      <wsdl:fault message="tns:getClassificationSystemValue_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValues">
+      <wsdl:input message="tns:getClassificationSystemValuesIn_doc"/>
+      <wsdl:output message="tns:getClassificationSystemValuesOut_doc"/>
+      <wsdl:fault message="tns:getClassificationSystemValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:input message="tns:getValuesIn_doc"/>
+      <wsdl:output message="tns:getValuesOut_doc"/>
+      <wsdl:fault message="tns:getValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="get_allValidValues">
+      <wsdl:input message="tns:get_allValidValuesIn_doc"/>
+      <wsdl:output message="tns:get_allValidValuesOut_doc"/>
+      <wsdl:fault message="tns:get_allValidValues_com.sap.esi.uddi.sr.cs.exception.UddiException_doc" name="com.sap.esi.uddi.sr.cs.exception.UddiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="saveClassificationSystemGroupValues">
+      <wsdl:input message="tns:saveClassificationSystemGroupValuesIn_doc"/>
+      <wsdl:output message="tns:saveClassificationSystemGroupValuesOut_doc"/>
+      <wsdl:fault message="tns:saveClassificationSystemGroupValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="saveClassificationSystemValues">
+      <wsdl:input message="tns:saveClassificationSystemValuesIn_doc"/>
+      <wsdl:output message="tns:saveClassificationSystemValuesOut_doc"/>
+      <wsdl:fault message="tns:saveClassificationSystemValues_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateClassificationSystem">
+      <wsdl:input message="tns:updateClassificationSystemIn_doc"/>
+      <wsdl:output message="tns:updateClassificationSystemOut_doc"/>
+      <wsdl:fault message="tns:updateClassificationSystem_com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException_doc" name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

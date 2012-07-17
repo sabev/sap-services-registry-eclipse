@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://example.com/stockquote/definitions2" xmlns:xsd1="http://example.com/stockquote/schemas" name="StockQuote2" targetNamespace="http://example.com/stockquote/definitions2">
+
+   <import location="stockquote.xsd" namespace="http://example.com/stockquote/schemas"/>
+
+    <message name="GetLastTradePriceInput1">
+        <part element="xsd1:TradePriceRequest" name="body"/>
+    </message>
+
+    <message name="GetLastTradePriceOutput1">
+        <part element="xsd1:TradePrice" name="body"/>
+    </message>
+
+    <portType name="StockQuotePortType1">
+        <operation name="GetLastTradePrice">
+           <input message="tns:GetLastTradePriceInput1"/>
+           <output message="tns:GetLastTradePriceOutput1"/>
+        </operation>
+    </portType>
+</definitions>

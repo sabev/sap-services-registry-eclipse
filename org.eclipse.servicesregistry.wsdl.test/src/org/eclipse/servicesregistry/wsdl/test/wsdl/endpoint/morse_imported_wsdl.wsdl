@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="morse_imported_wsdl" targetNamespace="http://www.regom.de.imported" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.regom.de.imported" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.regom.de.imported">
+	<xsd:element name="NewOperation">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="NewOperationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema></wsdl:types>
+    <wsdl:message name="NewOperationRequest">
+		<wsdl:part name="parameters" element="tns:NewOperation"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="NewOperationResponse">
+    	<wsdl:part name="parameters" element="tns:NewOperationResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ImportedPorttype">
+    	<wsdl:operation name="NewOperation">
+    		<wsdl:input message="tns:NewOperationRequest"></wsdl:input>
+    		<wsdl:output message="tns:NewOperationResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ImportedBinding" type="tns:ImportedPorttype">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="NewOperation">
+    		<soap:operation
+    			soapAction="http://www.regom.de.imported/NewOperation" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding></wsdl:definitions>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://marshalltestservice.org/CompoundTestDefs.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns3="http://marshalltestservice.org/types3" name="CompoundTestDefs" targetNamespace="http://marshalltestservice.org/CompoundTestDefs.wsdl">
+
+</definitions>
+

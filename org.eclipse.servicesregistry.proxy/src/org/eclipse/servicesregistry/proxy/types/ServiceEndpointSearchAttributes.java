@@ -1,0 +1,201 @@
+/*******************************************************************************
+ * Copyright (c) 2012 SAP AG and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     SAP AG - initial API and implementation
+ *******************************************************************************/
+
+package org.eclipse.servicesregistry.proxy.types;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for serviceEndpointSearchAttributes complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="serviceEndpointSearchAttributes">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="endpointClassifcations" type="{http://sap.com/esi/uddi/sr/api/ws/}classifications" minOccurs="0"/>
+ *         &lt;element name="listHead" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="maxRows" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="protocol" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
+ *         &lt;element name="serviceDefinitionKey" type="{http://sap.com/esi/uddi/sr/api/ws/}serviceDefinitionKey" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="transport" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "serviceEndpointSearchAttributes", propOrder = {
+    "endpointClassifcations",
+    "listHead",
+    "maxRows",
+    "protocol",
+    "serviceDefinitionKey",
+    "transport"
+})
+public class ServiceEndpointSearchAttributes {
+
+    protected Classifications endpointClassifcations;
+    protected int listHead;
+    protected int maxRows;
+    @XmlSchemaType(name = "anyURI")
+    protected String protocol;
+    @XmlElement(nillable = true)
+    protected List<ServiceDefinitionKey> serviceDefinitionKey;
+    @XmlSchemaType(name = "anyURI")
+    protected String transport;
+
+    /**
+     * Gets the value of the endpointClassifcations property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Classifications }
+     *     
+     */
+    public Classifications getEndpointClassifcations() {
+        return endpointClassifcations;
+    }
+
+    /**
+     * Sets the value of the endpointClassifcations property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Classifications }
+     *     
+     */
+    public void setEndpointClassifcations(Classifications value) {
+        this.endpointClassifcations = value;
+    }
+
+    /**
+     * Gets the value of the listHead property.
+     * 
+     */
+    public int getListHead() {
+        return listHead;
+    }
+
+    /**
+     * Sets the value of the listHead property.
+     * 
+     */
+    public void setListHead(int value) {
+        this.listHead = value;
+    }
+
+    /**
+     * Gets the value of the maxRows property.
+     * 
+     */
+    public int getMaxRows() {
+        return maxRows;
+    }
+
+    /**
+     * Sets the value of the maxRows property.
+     * 
+     */
+    public void setMaxRows(int value) {
+        this.maxRows = value;
+    }
+
+    /**
+     * Gets the value of the protocol property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getProtocol() {
+        return protocol;
+    }
+
+    /**
+     * Sets the value of the protocol property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setProtocol(String value) {
+        this.protocol = value;
+    }
+
+    /**
+     * Gets the value of the serviceDefinitionKey property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the serviceDefinitionKey property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getServiceDefinitionKey().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link ServiceDefinitionKey }
+     * 
+     * 
+     */
+    public List<ServiceDefinitionKey> getServiceDefinitionKey() {
+        if (serviceDefinitionKey == null) {
+            serviceDefinitionKey = new ArrayList<ServiceDefinitionKey>();
+        }
+        return this.serviceDefinitionKey;
+    }
+
+    /**
+     * Gets the value of the transport property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTransport() {
+        return transport;
+    }
+
+    /**
+     * Sets the value of the transport property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTransport(String value) {
+        this.transport = value;
+    }
+
+}

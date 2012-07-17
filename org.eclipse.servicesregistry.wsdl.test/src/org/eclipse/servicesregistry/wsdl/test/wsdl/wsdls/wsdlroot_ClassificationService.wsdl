@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:com/sap/esi/uddi/sr/cs" xmlns:p0="urn:com/sap/esi/uddi/sr/cs" xmlns:tns="urn:binding">
+  <import location="wsdlfile_ClassificationService1.wsdl" namespace="urn:binding"/>
+  <service name="ClassificationService">
+    <port binding="tns:ClassificationServiceBinding" name="ClassificationServicePort">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://localhost:50000/classificationService/cs?style=document"/>
+    </port>
+  </service>
+</definitions>

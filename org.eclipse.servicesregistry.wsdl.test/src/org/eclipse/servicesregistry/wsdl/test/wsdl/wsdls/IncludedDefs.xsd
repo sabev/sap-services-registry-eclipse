@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:foo="http://marshalltestservice.org/types2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://marshalltestservice.org/types2" elementFormDefault="qualified">
+
+  <element name="FooIncludedStringRequest" type="foo:IncludedStringRequest" />
+  <element name="FooIncludedStringResponse" type="foo:IncludedStringResponse" />
+  <complexType name="IncludedStringRequest">
+    <sequence>
+      <element name="myString" type="string" nillable="true" />
+    </sequence>
+  </complexType>
+  <complexType name="IncludedStringResponse">
+    <sequence>
+      <element name="myString" type="string" nillable="true" />
+    </sequence>
+  </complexType>
+</schema>
+

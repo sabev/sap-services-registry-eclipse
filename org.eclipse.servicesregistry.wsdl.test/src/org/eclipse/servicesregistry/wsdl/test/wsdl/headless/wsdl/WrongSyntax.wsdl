@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+xmlns="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:tns="http://marshalltestservice.org/CompoundTestDefs.wsdl"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:ns3="http://marshalltestservice.org/types3"
+xmlns:def1="http://example.com/definitions/base"
+name="CompoundTestDefs"
+targetNamespace="http://marshalltestservice.org/CompoundTestDefs.wsdl">
+
+  <import namespace="http://example.com/ns2_stockquote.wsdl"
+  	schemaLocation="./folder_~_with_{_and_}_symbols/ns2_org_with_~problematic_(name)_{_and_}_%symbols.wsdl" />
+
+  <!-- import namespace="http://example.com/definitions/base"
+          schemaLocation="./ns1_stockquote.wsdl"/ -->
+
+  <import namespace="http://example.com/stockquote.wsdl"
+          schemaLocation="./ns1_stockquote.wsdl"/>
+
+  <types>
+    <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xsd:import namespace="http://marshalltestservice.org/types3" schemaLocation="CompoundTestDefs.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="echoEmployeeRequest">
+    <part element="ns3:EchoEmployeeRequest" name="parameters" />
+  </message>
+  <message name="echoEmployeeResponse">
+    <part element="ns3:EchoEmployeeResponse" name="result" />
+  </message>
+  <message name="echoPersonRequest">
+    <part element="ns3:EchoPersonRequest" name="parameters" />
+  </message>
+  <message name="echoPersonResponse">
+    <part element="ns3:EchoPersonResponse" name="result" />
+  </message>
+  <portType name="CompoundTest">
+    <operation name="echoEmployee">
+      <input message="tns:echoEmployeeRequest" />
+      <output message="tns:echoEmployeeResponse" />
+    </operation>
+    <operation name="echoPerson">
+      <input message="tns:echoPersonRequest" />
+      <output message="tns:echoPersonResponse" />
+    </operation>
+  </portType>
+  <binding name="CompoundTestBinding" type="tns:CompoundTest">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="echoEmployee">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="echoPerson">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+</definitions>
+

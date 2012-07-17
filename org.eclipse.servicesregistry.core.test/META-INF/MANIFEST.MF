@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Services Registry Core Plugin Test
+Bundle-SymbolicName: org.eclipse.servicesregistry.core.test
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ org.eclipse.servicesregistry.core,
+ org.eclipse.servicesregistry.proxy,
+ org.mockito,
+ org.eclipse.core.runtime,
+ org.eclipse.equinox.security,
+ org.eclipse.jface
+Export-Package: org.eclipse.servicesregistry.core.test,
+ org.eclipse.servicesregistry.core.test.proxy

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:binding" xmlns:prt0="urn:vi" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import location="wsdlfile_ClassificationService2.wsdl" namespace="urn:vi"/>
+  <wsdl:binding name="ClassificationServiceBinding" type="prt0:ClassificationServiceVi">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createClassificationSystem">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystem">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystemAllValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClassificationSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClassificationSystems">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystem">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValue">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="get_allValidValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.UddiException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.UddiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="saveClassificationSystemGroupValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="saveClassificationSystemValues">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateClassificationSystem">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException">
+        <soap:fault name="com.sap.esi.uddi.sr.cs.exception.ClassificationServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>
